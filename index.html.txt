@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IPTV Meço - Login</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #222;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      box-shadow: 0 0 10px #000;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    input {
+      background: #333;
+      color: #fff;
+    }
+    button {
+      background: #ff6600;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #ff8533;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>IPTV Meço</h2>
+    <input type="text" id="serverUrl" placeholder="Server URL">
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+  </div>
+
+  <script>
+    function login() {
+      var url = document.getElementById('serverUrl').value;
+      var user = document.getElementById('username').value;
+      var pass = document.getElementById('password').value;
+
+      if (!url || !user || !pass) {
+        alert("Plotëso të gjitha fushat!");
+        return;
+      }
+
+      var finalLink = url + "/player_api.php?username=" + user + "&password=" + pass;
+
+      window.open(finalLink, "_blank");
+    }
+  </script>
+</body>
+</html>
